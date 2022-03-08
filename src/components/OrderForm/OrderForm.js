@@ -33,6 +33,8 @@ class OrderForm extends Component {
   }
 
   render() {
+    const userInstructions = !this.state.name.length || !this.state.ingredients.length ? <p><b>Instructions:</b> Submit your name <i>and</i> choose at least one ingredient.</p> : null;
+
     const possibleIngredients = ['beans', 'steak', 'carnitas', 'sofritas', 'lettuce', 'queso fresco', 'pico de gallo', 'hot sauce', 'guacamole', 'jalapenos', 'cilantro', 'sour cream'];
     const ingredientButtons = possibleIngredients.map(ingredient => {
       return (
@@ -48,6 +50,7 @@ class OrderForm extends Component {
 
     return (
       <form>
+        { userInstructions }
         <input
           type='text'
           placeholder='Name'
