@@ -49,24 +49,26 @@ class OrderForm extends Component {
     });
 
     return (
-      <form>
-        { userInstructions }
-        <input
-          type='text'
-          placeholder='Name'
-          name='name'
-          value={this.state.name}
-          onChange={e => this.handleNameChange(e)}
-        />
+      <div class='form-container'>
+          { userInstructions }
+        <form>
+          <input
+            type='text'
+            placeholder='Name'
+            name='name'
+            value={this.state.name}
+            onChange={e => this.handleNameChange(e)}
+          />
 
-        { ingredientButtons }
+          { ingredientButtons }
 
-        <p>Order: { this.state.ingredients.join(', ') || 'Nothing selected' }</p>
+          <p>Order: { this.state.ingredients.join(', ') || 'Nothing selected' }</p>
 
-        <button onClick={e => this.handleSubmit(e)}>
-          Submit Order
-        </button>
-      </form>
+          <button className='submit-button' onClick={e => this.handleSubmit(e)}>
+            Submit Order
+          </button>
+        </form>
+      </div>
     )
   }
 }
