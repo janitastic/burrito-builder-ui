@@ -39,6 +39,7 @@ describe('Dashboard inital page load', () => {
       .get('button[name="lettuce"]').click()
       .get('button[name="carnitas"]').click()
       .get('button[name="queso fresco"]').click()
+      .get('form > p').should('have.text', "Order: queso fresco, carnitas, lettuce, beans")
       .get('button[class="submit-button"]').click()
       .get('div[class="order"]').should('have.length', 3)
       .get('h3').last()
